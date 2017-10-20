@@ -55,7 +55,7 @@ struct tnode *removetree(struct tnode *p, char *w)
 {
 	int cond;
 	if (p == NULL){ //переделать, проверку что корень есть надо делать до
-		printf("NO WORD\n");
+		//printf("NO SUCH WORD\n");
 		return p;
 	}  
 	if ((cond = strcmp(w, p->word)) == 0){
@@ -93,16 +93,32 @@ struct tnode *removetree(struct tnode *p, char *w)
 	return p;	
 }
 
-void treeprinting(struct tnode *p)  //печатает всё дерево. Для тестов
+void print_all_tree(struct tnode *p)  //печатает всё дерево. Для тестов
 {
 	if (p != NULL){
-		treeprinting(p->left);
+		print_all_tree(p->left);
 			printf("Word:%s\n",p->word);
-		treeprinting(p->right);
+		print_all_tree(p->right);
+	}
+}
+
+void treefree(struct tnode *p) 
+{
+	if (p != NULL){
+		if (p->left == NULL && p->right == NULL)
+			free(p);
+		else if (p->left != NULL)
+			treefree(p->left);
+		else if (p->right != NULL)
+			treefree(p->right);
 	}
 }
 
 int main(int argc, char *argv[]){
+	if (argc != 2){
+		printf("You must input 1 file path\n");
+		return 1;
+	}
 	const char* file_name = *++argv;  //имя файла
 	char s[30];
 	FILE *f;
@@ -115,21 +131,27 @@ int main(int argc, char *argv[]){
 	while(fscanf(f,"%s", s) != EOF){
 		if (s[0] =='+'){
 			root = addtree(root,s+1);
-			//treeprinting(root);
+			//print_all_tree(root);
 			//printf("itwas: %s\n\n", s);
 		}
 		else if (s[0] == '?'){
 			root = treeprint(root,s+1);
-		//	treeprinting(root);
+		//	print_all_tree(root);
 		//	printf("itwas: %s\n\n", s);
 		}
 		else if (s[0] == '-'){
 			root = removetree(root, s+1);
-		//	treeprinting(root);
+		//	print_all_tree(root);
 			//printf("itwas: %s\n\n", s);
 		}
+		else {
+			printf("Wrong file format. First letter in word must be +,- or ?\n");
+			treefree(root);
+			return 2;
+		}
 	}
-	//treeprinting(root);
+	//print_all_tree(root);
+	treefree(root);
 	fclose(f);
 	return 0;
 }		
