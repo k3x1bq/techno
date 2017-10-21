@@ -1,6 +1,12 @@
 #include <iostream>
-#include <cstring>
 using namespace std;
+
+unsigned strlen (const char *str){
+	int len = 0;
+	for (; *str != '\0'; ++str)
+		++len;
+	return len;
+}
 
 void cpy (char* str1,const char* str2){
 	for (; *str2 != '\0'; ++str2,++str1)
@@ -12,20 +18,20 @@ void cpy (char* str1,const char* str2){
 class product{
 public:
 	product(const char* s = "", const char* s2 = "", int pr = 0, int days = 0, int count = 0):
-	 	name(new char[strlen(s)+1]),producer(new char[strlen(s2)+1]), price(pr), days(days), count(count)
+	 	name(new char[strlen(s)+1]),manufacturer(new char[strlen(s2)+1]), price(pr), days(days), amount(amount)
 		{
 			cpy(this->name,s);
-			cpy(this->producer, s2);
+			cpy(this->manufacturer, s2);
 		}
 
 	product(const product& other){
 		this->name = new char [strlen(other.name)+1];
 		cpy(this->name, other.name);
-		this->producer = new char [strlen(other.producer)+1];
-		cpy(this->producer, other.producer);
+		this->manufacturer = new char [strlen(other.manufacturer)+1];
+		cpy(this->manufacturer, other.manufacturer);
 		this->price = other.price;
 		this->days = other.days;
-		this->count = other.count;
+		this->amount = other.amount;
 	}	
 
 	void set_name (const char* s){	
@@ -34,38 +40,71 @@ public:
 		cpy(this->name, s);
 		return;
 	}
-
-	void set_producer (const char* s){	
-		delete [] this->producer;
-		this->producer = new char[strlen(s)+1];
-		cpy(this->producer, s);
+	void set_manufacturer (const char* s){	
+		delete [] this->manufacturer;
+		this->manufacturer = new char[strlen(s)+1];
+		cpy(this->manufacturer, s);
 		return;
 	}
-
 	void set_price (int pr){	
 		this->price = pr;
 		return;
 	}
-
 	void set_days (int d){	
 		this->days = d;
 		return;
 	}
+	void set_amount (int c){	
+		this->amount =c;
+		return;
+	}
 
-	void set_count (int c){	
-		this->count =c;
+	char* get_name(){
+		return this->name;
+	}
+	char* get_manufacturer(){
+		return this->manufacturer;
+	}
+	int get_price(){
+		return this->price;
+	}
+	int get_days(){
+		return this->days;
+	}
+	int get_amount(){
+		return this->amount;
+	}
+
+	void show_name(){
+		cout << "Name: " << this->name << endl;
+		return;
+	}
+	void show_manufacturer(){
+		cout << "manufacturer: " << this->manufacturer << endl;
+		return;
+	}
+	void show_price(){
+		cout << "price: " << this->price << endl;
+		return;
+	}
+	void show_days(){
+		cout << "days: " << this->days << endl;
+		return;
+	}
+	void show_amount(){
+		cout << "amount: " << this->amount << endl;
 		return;
 	}
 
 	void show_all(){
-		cout << name <<" "<< producer <<" "<< price <<" "<< days <<" "<< count << endl;
+		cout << name <<" "<< manufacturer <<" "<< price <<" "<< days <<" "<< amount << endl;
 	}	
 private:
 	char* name;
-	char* producer;
+	char* manufacturer;
 	int price;
 	int days;
-	int count;
+	int amount;
 };	
 
 int main (int argc, char *argv[]){
@@ -78,10 +117,13 @@ int main (int argc, char *argv[]){
 	test3.show_all();
 	product* test4 = new product;
 	test4->set_name("ttt");
-	test4->set_producer("I");
+	test4->set_manufacturer("I");
 	test4->set_price(10202);
 	test4->set_days(123);
-	test4->set_count(23);
+	test4->set_amount(23);
 	test4->show_all();
+	int a = test4->get_amount();
+	cout << a << endl;
+	test3.show_name();
 	return 0;
 }
