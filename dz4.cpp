@@ -27,6 +27,36 @@ public:
 		this->days = other.days;
 		this->count = other.count;
 	}	
+
+	void set_name (const char* s){	
+		delete [] this->name;
+		this->name = new char[strlen(s)+1];
+		cpy(this->name, s);
+		return;
+	}
+
+	void set_producer (const char* s){	
+		delete [] this->producer;
+		this->producer = new char[strlen(s)+1];
+		cpy(this->producer, s);
+		return;
+	}
+
+	void set_price (int pr){	
+		this->price = pr;
+		return;
+	}
+
+	void set_days (int d){	
+		this->days = d;
+		return;
+	}
+
+	void set_count (int c){	
+		this->count =c;
+		return;
+	}
+
 	void show_all(){
 		cout << name <<" "<< producer <<" "<< price <<" "<< days <<" "<< count << endl;
 	}	
@@ -39,9 +69,19 @@ private:
 };	
 
 int main (int argc, char *argv[]){
-	product test("hui","ya",300);
+	product test("tovar","me",300);
 	test.show_all();
 	product test2(test);
 	test2.show_all();
+	product test3;
+	test3.set_name("NewTovar");
+	test3.show_all();
+	product* test4 = new product;
+	test4->set_name("ttt");
+	test4->set_producer("I");
+	test4->set_price(10202);
+	test4->set_days(123);
+	test4->set_count(23);
+	test4->show_all();
 	return 0;
 }
