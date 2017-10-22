@@ -219,35 +219,51 @@ void thirdlist (product *mas,int size, list& l,int given_days){
 	return;
 }
 
-void inputFile()
+/*product* inputFile(ifstream& input){
+
+}*/
 
 int main (int argc, char *argv[]){
-	product mas[5];	
+	int size;
+	cout << "Enter mass size: ";
+	cin >> size;
+	product* mas = new product[size];
 	/*create_el(mas[0],"1p","aaa",10,10,5);
 	create_el(mas[1],"2p","bbb",1,1,3);
 	create_el(mas[2],"3p","ccc",20,15,1);
 	create_el(mas[3],"2p","ddd",15,5,5);
 	create_el(mas[4],"2p","3sd",123,456,2);*/
-	for (int i = 0; i < 2; ++i){
+	for (int i = 0; i < size; ++i){
+		cout << i << " element:"<< endl;
 		inputElem(mas[i]);
+		cout << endl;
 	}
-	for (int i = 0; i < 5; ++i) 
+	cout << endl;
+	for (int i = 0; i < size; ++i) 
 		mas[i].show_all(); 
 	cout << endl;
-	const char* dano_name = "2p";
-	int pr = 20;
-	int given_days = 10;
+	char given_name[MAXLEN];
+	int given_price;
+	int given_days;
+	cout << "enter give_name: ";
+	cin >> given_name;
+	cout << "enter given_price: ";
+	cin >> given_price;
+	cout << "enter given_days: ";
+	cin >> given_days;
+	cout << endl;
 	list l1;
 	list l2;
 	list l3;
-	firstlist(mas,5,l1,dano_name);
-	secondlist(mas,5,l2,dano_name,pr);
-	thirdlist(mas,5,l3,given_days);
+	firstlist(mas,size,l1,given_name);
+	secondlist(mas,size,l2,given_name,given_price);
+	thirdlist(mas,size,l3,given_days);
+	cout << "first list: ";
 	l1.show();
-	cout << endl;
+	cout << "second list: ";
 	l2.show();
-	cout << endl;
+	cout << "third list: ";
 	l3.show();
-
+	delete [] mas;
 	return 0;
 }
