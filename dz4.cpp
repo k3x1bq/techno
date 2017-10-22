@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstring>
 #include <fstream>
+
+#define MAXLEN 100
 using namespace std;
 
 /*unsigned strlen (const char *str){
@@ -172,29 +174,80 @@ void create_el(product& p,const char* s,const char* s2,int pr,int d,int am){
 	p.set_amount(am);
 }
 
+void inputElem(product &p){
+	char name[MAXLEN];
+	char manufacturer[MAXLEN];
+	int price = -1;
+	int days = -1;
+	int amount = -1;
+	cout << "Enter name: ";
+	cin >> name;
+	cout << "Enter manufacturer: ";
+	cin >> manufacturer; 
+	cout << "Enter price: ";
+	cin >> price;
+	cout << "Enter days: ";
+	cin >> days;
+	cout << "Enter amount: ";
+	cin >> amount;
+	create_el(p, name, manufacturer, price, days, amount);
+	return;
+}
+
+void firstlist (product *mas,int size, list& l,const char *given_name){
+	for (int i = 0; i < size; ++i) {
+		if (strcmp(mas[i].get_name(),given_name) == 0)
+			l.add(mas[i]);
+	}	
+	return;
+}
+
+void secondlist (product *mas,int size, list& l,const char *given_name,int given_price){
+	for (int i = 0; i < size; ++i) {
+		if (strcmp(mas[i].get_name(),given_name) == 0)
+			if(mas[i].get_price() <= given_price)
+				l.add(mas[i]);
+	}
+	return;
+}
+
+void thirdlist (product *mas,int size, list& l,int given_days){
+	for (int i = 0; i < size; ++i) {
+		if (mas[i].get_days() >= given_days)
+			l.add(mas[i]);
+	}	
+	return;
+}
+
+void inputFile()
+
 int main (int argc, char *argv[]){
 	product mas[5];	
-	create_el(mas[0],"1p","aaa",10,10,5);
+	/*create_el(mas[0],"1p","aaa",10,10,5);
 	create_el(mas[1],"2p","bbb",1,1,3);
 	create_el(mas[2],"3p","ccc",20,15,1);
 	create_el(mas[3],"2p","ddd",15,5,5);
-	create_el(mas[4],"2p","3sd",123,456,2);
+	create_el(mas[4],"2p","3sd",123,456,2);*/
+	for (int i = 0; i < 2; ++i){
+		inputElem(mas[i]);
+	}
+	for (int i = 0; i < 5; ++i) 
+		mas[i].show_all(); 
+	cout << endl;
+	const char* dano_name = "2p";
+	int pr = 20;
+	int given_days = 10;
 	list l1;
 	list l2;
 	list l3;
-	const char* dano_name = "2p";
-	int pr = 20;
-	for (int i = 0; i < 5; ++i) {
-		if (strcmp(mas[i].get_name(),dano_name) == 0)
-			if(mas[i].get_price() <= pr){
-				l1.add(mas[i]);
-				l2.add(mas[i]);
-			}
-			else {
-				l1.add(mas[i]);
-			}
-	}
+	firstlist(mas,5,l1,dano_name);
+	secondlist(mas,5,l2,dano_name,pr);
+	thirdlist(mas,5,l3,given_days);
 	l1.show();
+	cout << endl;
 	l2.show();
+	cout << endl;
+	l3.show();
+
 	return 0;
 }
