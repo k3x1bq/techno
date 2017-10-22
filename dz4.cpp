@@ -99,6 +99,11 @@ public:
 	void show_all(){
 		cout << name <<" "<< manufacturer <<" "<< price <<" "<< days <<" "<< amount << endl;
 	}	
+
+	~product(){
+		delete [] this->name;
+		delete [] this->manufacturer;
+	}
 private:
 	char* name;
 	char* manufacturer;
@@ -107,23 +112,44 @@ private:
 	int amount;
 };	
 
+class list;
+
+class element{
+friend list;
+private:
+	product* data;
+	element* next;
+};
+
+class list{
+public:
+	friend element;
+	list(): head(NULL){}
+	~list(){
+		while (head != NULL){
+			element* tmp = head->next;
+			delete head;
+			head = tmp;
+		}
+	}
+	void add(product& elem){
+		element* tmp = new element;
+		tmp->data = new product(elem);
+		tmp->next = head;
+		head = tmp;
+	}
+	void show(){
+		element* tmp = head;
+		while (tmp != 0){
+			cout << tmp->data << " ";
+			tmp = tmp->next;
+		}
+	}
+private:
+	element* head;
+};
+
 int main (int argc, char *argv[]){
-	product test("tovar","me",300);
-	test.show_all();
-	product test2(test);
-	test2.show_all();
-	product test3;
-	test3.set_name("NewTovar");
-	test3.show_all();
-	product* test4 = new product;
-	test4->set_name("ttt");
-	test4->set_manufacturer("I");
-	test4->set_price(10202);
-	test4->set_days(123);
-	test4->set_amount(23);
-	test4->show_all();
-	int a = test4->get_amount();
-	cout << a << endl;
-	test3.show_name();
+	
 	return 0;
 }
