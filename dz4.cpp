@@ -18,7 +18,7 @@ void cpy (char* str1,const char* str2){
 class product{
 public:
 	product(const char* s = "", const char* s2 = "", int pr = 0, int days = 0, int count = 0):
-	 	name(new char[strlen(s)+1]),manufacturer(new char[strlen(s2)+1]), price(pr), days(days), amount(amount)
+	 	name(new char[strlen(s)+1]),manufacturer(new char[strlen(s2)+1]), price(pr), days(days), amount(count)
 		{
 			cpy(this->name,s);
 			cpy(this->manufacturer, s2);
@@ -33,6 +33,19 @@ public:
 		this->days = other.days;
 		this->amount = other.amount;
 	}	
+
+	product& operator= (const product& other){
+		delete [] this->name;
+		this->name = new char [strlen(other.name)+1];
+		cpy(this->name,other.name);
+		delete [] this->manufacturer;
+		this->manufacturer = new char [strlen(other.manufacturer)+1];
+		cpy(this->manufacturer,other.manufacturer);
+		this->price = other.price;
+		this->days = other.days;
+		this->amount = other.amount;
+		return *this;
+	}
 
 	void set_name (const char* s){	
 		delete [] this->name;
@@ -150,6 +163,14 @@ private:
 };
 
 int main (int argc, char *argv[]){
-	
+	product* mas = new product[5];	
+	mas[0] = product("1p","aaa",10,10,5);
+	mas[1] = product("2p","bbb",1,1,3);
+	mas[2] = product("3p","ccc",20,15,1);
+	mas[3] = product("2p","ddd",15,5,5);
+	mas[4] = product("1p","eee",125,14,6);
+	mas[0].show_all();
+	product tmp("1p","aaa",10,10,5);
+	tmp.show_all();
 	return 0;
 }
