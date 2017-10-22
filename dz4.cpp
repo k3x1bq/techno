@@ -1,12 +1,14 @@
 #include <iostream>
+#include <cstring>
+#include <fstream>
 using namespace std;
 
-unsigned strlen (const char *str){
+/*unsigned strlen (const char *str){
 	int len = 0;
 	for (; *str != '\0'; ++str)
 		++len;
 	return len;
-}
+}*/
 
 void cpy (char* str1,const char* str2){
 	for (; *str2 != '\0'; ++str2,++str1)
@@ -154,7 +156,7 @@ public:
 	void show(){
 		element* tmp = head;
 		while (tmp != 0){
-			cout << tmp->data << " ";
+			tmp->data->show_all();
 			tmp = tmp->next;
 		}
 	}
@@ -162,15 +164,37 @@ private:
 	element* head;
 };
 
+void create_el(product& p,const char* s,const char* s2,int pr,int d,int am){
+	p.set_name(s);
+	p.set_manufacturer(s2);
+	p.set_price(pr);
+	p.set_days(d);
+	p.set_amount(am);
+}
+
 int main (int argc, char *argv[]){
-	product* mas = new product[5];	
-	mas[0] = product("1p","aaa",10,10,5);
-	mas[1] = product("2p","bbb",1,1,3);
-	mas[2] = product("3p","ccc",20,15,1);
-	mas[3] = product("2p","ddd",15,5,5);
-	mas[4] = product("1p","eee",125,14,6);
-	mas[0].show_all();
-	product tmp("1p","aaa",10,10,5);
-	tmp.show_all();
+	product mas[5];	
+	create_el(mas[0],"1p","aaa",10,10,5);
+	create_el(mas[1],"2p","bbb",1,1,3);
+	create_el(mas[2],"3p","ccc",20,15,1);
+	create_el(mas[3],"2p","ddd",15,5,5);
+	create_el(mas[4],"2p","3sd",123,456,2);
+	list l1;
+	list l2;
+	list l3;
+	const char* dano_name = "2p";
+	int pr = 20;
+	for (int i = 0; i < 5; ++i) {
+		if (strcmp(mas[i].get_name(),dano_name) == 0)
+			if(mas[i].get_price() <= pr){
+				l1.add(mas[i]);
+				l2.add(mas[i]);
+			}
+			else {
+				l1.add(mas[i]);
+			}
+	}
+	l1.show();
+	l2.show();
 	return 0;
 }
