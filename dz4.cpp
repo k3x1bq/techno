@@ -219,12 +219,43 @@ void thirdlist (product *mas,int size, list& l,int given_days){
 	return;
 }
 
-/*product* inputFile(ifstream& input){
-
-}*/
+product* inputFile(ifstream& input, int& size){
+	int i = 0;
+	int step = 5;
+	int cap = 5;
+	product* mas = new product[cap];
+	while (!input.eof()){
+		char name[MAXLEN];
+		char manufacturer[MAXLEN];
+		int price = -1;
+		int days = -1;
+		int amount = -1;
+		input >> name;
+		input >> manufacturer;
+		input >> price;
+		input >> days;
+		input >> amount; 
+		
+		create_el(mas[i], name, manufacturer, price, days, amount);
+		size = i;
+		++i;
+		if (i >= step){
+			cap += step;
+			product* tmp = new product[cap];
+			for (int i = 0; i < cap-step; ++i) 
+				tmp[i]=mas[i];
+			delete [] mas;
+			mas = tmp;
+		}
+	}
+	return mas;
+}
 
 int main (int argc, char *argv[]){
-	int size;
+	ifstream input("file");
+	int size = 0;
+	product* mas = inputFile(input,size);
+	/*int size;
 	cout << "Enter mass size: ";
 	cin >> size;
 	product* mas = new product[size];
@@ -232,12 +263,12 @@ int main (int argc, char *argv[]){
 	create_el(mas[1],"2p","bbb",1,1,3);
 	create_el(mas[2],"3p","ccc",20,15,1);
 	create_el(mas[3],"2p","ddd",15,5,5);
-	create_el(mas[4],"2p","3sd",123,456,2);*/
+	create_el(mas[4],"2p","3sd",123,456,2);
 	for (int i = 0; i < size; ++i){
 		cout << i << " element:"<< endl;
 		inputElem(mas[i]);
 		cout << endl;
-	}
+	}*/
 	cout << endl;
 	for (int i = 0; i < size; ++i) 
 		mas[i].show_all(); 
@@ -258,11 +289,11 @@ int main (int argc, char *argv[]){
 	firstlist(mas,size,l1,given_name);
 	secondlist(mas,size,l2,given_name,given_price);
 	thirdlist(mas,size,l3,given_days);
-	cout << "first list: ";
+	cout << "first list: "<<endl;
 	l1.show();
-	cout << "second list: ";
+	cout << "second list: "<<endl;
 	l2.show();
-	cout << "third list: ";
+	cout << "third list: "<<endl;
 	l3.show();
 	delete [] mas;
 	return 0;
