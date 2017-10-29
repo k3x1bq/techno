@@ -50,11 +50,20 @@ void String::append(const char c){
 	this->str = tmp;
 	this->size = strlen(str);
 }
+
 void String::swap_s(String &other){
-	std::swap(size,other.size);
-	std::swap(str, other.str);
+// 	String tmp = other;
+// 	other = *this;
+// 	*this = tmp;
+	std::swap(this->size,other.size);
+	std::swap(this->str, other.str);
 }
 
+void swap (String& s1, String& s2){
+	String tmp = s1;
+ 	s1 = s2;
+ 	s2 = tmp;
+}
 
 
 char& String::operator [] (int i){
@@ -69,38 +78,39 @@ char String::operator [] (int i) const {
 	else
 		return '\0';
 }
+
+
 std::ostream& operator << (std::ostream& os, String const& obj){
 	return os << obj.str;
 }
-std::istream& operator >> (std::istream& is, String& obj){
-	is.sync();
-	while(isspace(is.peek())) 
-		is.get();
-	int cap = STEP;
+std::istream& operator >> (std::istream& is, String& obj){ //перегрузка считывание с экрана
+	is.sync(); //что-то там про отчистку буфера, возможно работает и без этого
+	while(isspace(is.peek())) //пропускаем пробелы оставшиеся(возможно)
+		is.get();			//от предидущего ввода с помощью cin >> ;
+	int cap = STEP; // размер буфера
 	char* tmp = new char[cap+1];
 	int i = 0;
-	while ( !isspace(is.peek()) ){
+	while ( !isspace(is.peek()) ){ //is.peek() "смотрит" на следующий за текущим символом(не переводит его вперед)
 		if (i < cap)
-			tmp[i++] = is.get();
-		else {
-			cap = cap + STEP;
+			is >> tmp[i++];//tmp[i++] = is.get(); //читаем 1 символ из потока ввода и кладем его в массив чаров
+		else { //если место кончилось
+			cap = cap + STEP; // увиличиваем его
 			char *temp = new char[cap+1];
-			for (int j = 0; j < i; ++j)
+			for (int j = 0; j < i; ++j)  //копируем в новый увеличенный массив данные
 				temp[j] = tmp[j]; 
-			delete [] tmp;
-			tmp = temp;
-			tmp[i++] = is.get();
+			delete [] tmp; //удаляем что было раньше
+			tmp = temp; // присваиваем новый массив(указатель на него)
+			is >> tmp[i++];//tmp[i++] = is.get();
 		}
-		tmp[i] = '\0';
+		tmp[i] = '\0'; 
 	}
-	delete [] obj.str;
-	obj.size = strlen(tmp);
-	obj.str = new char[obj.size+1];
+	delete [] obj.str; //удаляем то что хранилось раньше в строке 
+	obj.size = strlen(tmp); //strlen Берет размер строки ДО \0 таким образом отметается лишние части выделенные большими кусками
+	obj.str = new char[obj.size+1]; 
 	strcpy(obj.str,tmp);
 	delete [] tmp;
 	return is;
 }
-
 
 
 String& String::operator += (const char c){
@@ -127,6 +137,7 @@ bool operator == (const String s1, const String s2){
 		return false;
 }
 bool operator < (const String s1, const String s2){
+	//return (strcmp(s1.str,s2.str) < 0);
 	if (strcmp(s1.str,s2.str) < 0)
 		return true;
 	else 
