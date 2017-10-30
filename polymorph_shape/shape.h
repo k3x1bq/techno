@@ -1,6 +1,3 @@
-//
-// Created by kexibq on 30.10.17.
-//
 
 #ifndef CLION_HW6_SHAPE_H
 #define CLION_HW6_SHAPE_H
