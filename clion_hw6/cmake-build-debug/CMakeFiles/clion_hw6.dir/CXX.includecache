@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/kexibq/technoPark/clion_hw6/main.cpp
+iostream
+-
+fstream
+-
+shape.h
+/home/kexibq/technoPark/clion_hw6/shape.h
+
+/home/kexibq/technoPark/clion_hw6/shape.cpp
+shape.h
+/home/kexibq/technoPark/clion_hw6/shape.h
+
+/home/kexibq/technoPark/clion_hw6/shape.h
+cmath
+-
+iostream
+-
+fstream
+-
+string
+-
+

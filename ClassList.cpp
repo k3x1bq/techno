@@ -239,7 +239,7 @@ product* inputFile(ifstream& input, int& size){
 		create_el(mas[i], name, manufacturer, price, days, amount);
 		size = i;
 		++i;
-		if (i >= step){
+		if (i >= step){ //cap
 			cap += step;
 			product* tmp = new product[cap];
 			for (int i = 0; i < cap-step; ++i) 
