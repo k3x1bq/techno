@@ -44,4 +44,6 @@ private:
 
 int create_mas_from_file(std::ifstream& input,shape** &mas);
 void free_mas(shape** mas, int size);
+
+
 #endif //CLION_HW6_SHAPE_H

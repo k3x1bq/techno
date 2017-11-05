@@ -8,8 +8,8 @@ using namespace std;
 
 int main(int argc,char **argv) {
     ifstream input(*++argv); //открываем файл для ввода из него
-    shape **mas;  //создаем массив указателей на базовый класс shape
-    int size;
+    shape **mas = NULL;  //создаем массив указателей на базовый класс shape
+    int size = 0;
     if (input.is_open()) { // проверям открылся ли файл
         size = create_mas_from_file(input, mas); //заполняем из этого файла массив
         for (int i = 0; i < size; ++i) { //Выводим всю информацию

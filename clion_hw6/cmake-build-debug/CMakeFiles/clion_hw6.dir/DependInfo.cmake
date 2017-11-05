@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/kexibq/technoPark/clion_hw6/main.cpp" "/home/kexibq/technoPark/clion_hw6/cmake-build-debug/CMakeFiles/clion_hw6.dir/main.cpp.o"
-  "/home/kexibq/technoPark/clion_hw6/shape.cpp" "/home/kexibq/technoPark/clion_hw6/cmake-build-debug/CMakeFiles/clion_hw6.dir/shape.cpp.o"
+  "/home/danil/techno/clion_hw6/main.cpp" "/home/danil/techno/clion_hw6/cmake-build-debug/CMakeFiles/clion_hw6.dir/main.cpp.o"
+  "/home/danil/techno/clion_hw6/shape.cpp" "/home/danil/techno/clion_hw6/cmake-build-debug/CMakeFiles/clion_hw6.dir/shape.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

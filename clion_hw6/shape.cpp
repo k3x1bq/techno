@@ -88,3 +88,4 @@ void free_mas(shape **mas,int size) {
     }
     delete [] mas;
 }
+

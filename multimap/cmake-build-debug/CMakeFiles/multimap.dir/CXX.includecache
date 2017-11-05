@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/danil/techno/multimap/main.cpp
+iostream
+-
+multimap.hpp
+/home/danil/techno/multimap/multimap.hpp
+string
+-
+
+/home/danil/techno/multimap/multimap.cpp
+multimap.hpp
+/home/danil/techno/multimap/multimap.hpp
+
+/home/danil/techno/multimap/multimap.hpp
+iostream
+-
+

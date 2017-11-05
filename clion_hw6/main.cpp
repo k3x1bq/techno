@@ -8,8 +8,8 @@ using namespace std;
 
 int main(int argc,char **argv) {
     ifstream input(*++argv);
-    shape **mas;
-    int size;
+    shape **mas = NULL;
+    int size = -1;
     if (input.is_open()) {
         size = create_mas_from_file(input, mas);
         for (int i = 0; i < size; ++i) {

@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/kexibq/clion-2017.2.3/bin/cmake/bin/cmake
+CMAKE_COMMAND = /home/danil/Загрузки/clion-2017.2.3/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/kexibq/clion-2017.2.3/bin/cmake/bin/cmake -E remove -f
+RM = /home/danil/Загрузки/clion-2017.2.3/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kexibq/technoPark/clion_hw6
+CMAKE_SOURCE_DIR = /home/danil/techno/clion_hw6
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kexibq/technoPark/clion_hw6/cmake-build-debug
+CMAKE_BINARY_DIR = /home/danil/techno/clion_hw6/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/clion_hw6.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/clion_hw6.dir/flags.make
 
 CMakeFiles/clion_hw6.dir/main.cpp.o: CMakeFiles/clion_hw6.dir/flags.make
 CMakeFiles/clion_hw6.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kexibq/technoPark/clion_hw6/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/clion_hw6.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/clion_hw6.dir/main.cpp.o -c /home/kexibq/technoPark/clion_hw6/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danil/techno/clion_hw6/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/clion_hw6.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/clion_hw6.dir/main.cpp.o -c /home/danil/techno/clion_hw6/main.cpp
 
 CMakeFiles/clion_hw6.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/clion_hw6.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kexibq/technoPark/clion_hw6/main.cpp > CMakeFiles/clion_hw6.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danil/techno/clion_hw6/main.cpp > CMakeFiles/clion_hw6.dir/main.cpp.i
 
 CMakeFiles/clion_hw6.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/clion_hw6.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kexibq/technoPark/clion_hw6/main.cpp -o CMakeFiles/clion_hw6.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danil/techno/clion_hw6/main.cpp -o CMakeFiles/clion_hw6.dir/main.cpp.s
 
 CMakeFiles/clion_hw6.dir/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/clion_hw6.dir/main.cpp.o.provides.build: CMakeFiles/clion_hw6.dir/mai
 
 CMakeFiles/clion_hw6.dir/shape.cpp.o: CMakeFiles/clion_hw6.dir/flags.make
 CMakeFiles/clion_hw6.dir/shape.cpp.o: ../shape.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kexibq/technoPark/clion_hw6/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/clion_hw6.dir/shape.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/clion_hw6.dir/shape.cpp.o -c /home/kexibq/technoPark/clion_hw6/shape.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danil/techno/clion_hw6/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/clion_hw6.dir/shape.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/clion_hw6.dir/shape.cpp.o -c /home/danil/techno/clion_hw6/shape.cpp
 
 CMakeFiles/clion_hw6.dir/shape.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/clion_hw6.dir/shape.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kexibq/technoPark/clion_hw6/shape.cpp > CMakeFiles/clion_hw6.dir/shape.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danil/techno/clion_hw6/shape.cpp > CMakeFiles/clion_hw6.dir/shape.cpp.i
 
 CMakeFiles/clion_hw6.dir/shape.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/clion_hw6.dir/shape.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kexibq/technoPark/clion_hw6/shape.cpp -o CMakeFiles/clion_hw6.dir/shape.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danil/techno/clion_hw6/shape.cpp -o CMakeFiles/clion_hw6.dir/shape.cpp.s
 
 CMakeFiles/clion_hw6.dir/shape.cpp.o.requires:
 
@@ -117,7 +117,7 @@ clion_hw6: CMakeFiles/clion_hw6.dir/main.cpp.o
 clion_hw6: CMakeFiles/clion_hw6.dir/shape.cpp.o
 clion_hw6: CMakeFiles/clion_hw6.dir/build.make
 clion_hw6: CMakeFiles/clion_hw6.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kexibq/technoPark/clion_hw6/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable clion_hw6"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/danil/techno/clion_hw6/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable clion_hw6"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/clion_hw6.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -135,6 +135,6 @@ CMakeFiles/clion_hw6.dir/clean:
 .PHONY : CMakeFiles/clion_hw6.dir/clean
 
 CMakeFiles/clion_hw6.dir/depend:
-	cd /home/kexibq/technoPark/clion_hw6/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kexibq/technoPark/clion_hw6 /home/kexibq/technoPark/clion_hw6 /home/kexibq/technoPark/clion_hw6/cmake-build-debug /home/kexibq/technoPark/clion_hw6/cmake-build-debug /home/kexibq/technoPark/clion_hw6/cmake-build-debug/CMakeFiles/clion_hw6.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/danil/techno/clion_hw6/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danil/techno/clion_hw6 /home/danil/techno/clion_hw6 /home/danil/techno/clion_hw6/cmake-build-debug /home/danil/techno/clion_hw6/cmake-build-debug /home/danil/techno/clion_hw6/cmake-build-debug/CMakeFiles/clion_hw6.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/clion_hw6.dir/depend
 
