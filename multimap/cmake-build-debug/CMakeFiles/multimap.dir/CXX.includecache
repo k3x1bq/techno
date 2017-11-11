@@ -13,6 +13,8 @@ multimap.hpp
 /home/danil/techno/multimap/multimap.hpp
 string
 -
+fstream
+-
 
 /home/danil/techno/multimap/multimap.cpp
 multimap.hpp
@@ -20,5 +22,9 @@ multimap.hpp
 
 /home/danil/techno/multimap/multimap.hpp
 iostream
+-
+exception
+-
+string
 -
 
